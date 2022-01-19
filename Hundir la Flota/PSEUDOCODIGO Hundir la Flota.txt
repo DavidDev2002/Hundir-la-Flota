@@ -1,0 +1,99 @@
+function
+	var
+		INTEGER i,j,tablero[ROW][COLS],x,p1,p2,p3,num,error;
+		CHAR letter;
+	endvar
+
+	WRITE *******************************;
+   	WRITE *******************************;
+    	WRITE ***********WELCOME*************;
+    	WRITE *******************************;
+    	WRITE *******************************;
+
+	do
+		WRITE n1 - EASY MODE
+		WRITE n2 - MEDIUM MODE
+		WRITE n3 - EXTREME MODE
+		WRITE n4 - EXIT
+		READ num1
+	while num1 < 1 OR num1 > 4 AND error != 3
+
+	switch num1:
+		case 1:
+
+			WRITE YOU HAVE CHOSEN THE EASY MODE;
+			WRITE    A  B  C  D  E  F  G  H  I  J  ;
+			for i to ROW
+				for j to COLS
+					tablero[i][j] = 0;
+					if j != 0
+						WIRTE tablero[i][j];
+					else
+						WRITE x;
+						x = x + 1;
+					endif
+				endfor
+			endfor
+			WRITE Select the row you want to shoot;
+			READ p1;
+			p3 = p1
+			WRITE Select the column you want to shoot;
+			READ letter;
+
+			switch letter
+			case A:
+				p2 = 1;
+			break;
+			case B:
+				p2 = 2;
+			break;
+			case C:
+				p2 = 3;
+			break;
+			case D:
+				p2 = 4;
+			break;
+			case E:
+				p2 = 5;
+			break;
+			case F:
+				p2 = 6;
+			break;
+			case G:
+				p2 = 7;
+			break;
+			case H:
+				p2 = 8;
+			break;
+			case I:
+				p2 = 9;
+			break;
+			case J:
+				p2 = 10;
+			break;
+			tablero[p3][p2] = 1;
+			x = 0;
+			WRITE    A  B  C  D  E  F  G  H  I  J   ;
+			for i to ROW
+				for j to COLS
+					if j != 0
+						WIRTE tablero[i][j];
+					else
+						WRITE x;
+						x = x + 1;
+					endif
+				endfor
+			endfor
+			if tablero[3][3] != 0 OR tablero[4][3] != 0 OR tablero[5][3] != 0
+				OR tablero[3][5] != 0 OR tablero[3][6] != 0
+				OR tablero[2][9] != 0 OR tablero[3][9] != 0
+				OR tablero[4][9] != 0 OR tablero[6][5] != 0
+				OR tablero[6][6] != 0 OR tablero[6][7] != 0
+				OR tablero[6][8] != 0 OR tablero[9][3] != 0
+				OR tablero[9][4] != 0 OR tablero[9][5] != 0
+				OR tablero[9][6] != 0 OR tablero[9][7] != 0
+				WRITE TOCADO!;
+			else
+				WRITE AGUA;
+			endif 
+endfunction	
